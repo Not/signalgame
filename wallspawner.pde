@@ -5,7 +5,7 @@ class wallspawner {
   float distance, interval;
   float  random, seed, size;
   ArrayList<wall> walls;
-  wire wire1;
+  wire wire1; 
   float speed;
 
 
@@ -23,7 +23,7 @@ class wallspawner {
     interval++;
     
     if (interval>(distance/speed)) {
-      walls.add(new wall((int)(randomGaussian()*30+size), (int)(noise(seed*random)*(height-bar)), speed));
+      walls.add(new wall(int(randomGaussian()*30+size), int(noise(seed*random)*(height-bar)), speed));
       seed++;interval=0;
       
     }
@@ -48,7 +48,7 @@ class wallspawner {
       wall w = it.next();
       w.render();
       w.checkCollision(wire1);
-      if (w.isDead()) {
+      if (w.isOnscreen()) {
         it.remove();
       }
     }

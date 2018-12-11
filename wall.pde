@@ -1,9 +1,9 @@
 class wall {
-  int gap_h;
-  int gap_c;
-  int open;
+  int gap_h; //wysokość dziury
+  int gap_c; //rozmiar dziury
+  int open;  //do "znikania" sciany
   float speed,openspeed;
-  float  x=width;
+  float  x=width; //start sciany po prawej
   boolean hit=false;
 
   wall(int gclearance, int gheight, float speed) {
@@ -30,7 +30,7 @@ class wall {
     x-=speed;
    // println(speed);
   }
-  boolean isDead() {
+  boolean isOnscreen() {
     if (x<0) return true;
     return false;
   }
@@ -44,7 +44,7 @@ class wall {
         
       if(x+15<w.getX()){
       open+=openspeed;
-      openspeed+=0.5;
+      openspeed+=0.5; //otwieranie ruchem przyspieszonym
       }
     
     return false;
